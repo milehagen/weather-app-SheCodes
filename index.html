@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://kit.fontawesome.com/1a5296b9fa.js" crossorigin="anonymous"></script>
+    <title>WireFrameHomeWork</title>
+   
+  </head>
+  <body>
+    <div class="container">
+         <div class="row">
+        <div class="col-6 city-name">
+      <h1>OSLO </h1> 
+  </div>
+  
+  <div class="col-6 metric">  
+    <span id="celcius"> C </span>|<span id="fahrenheit"> F </span>
+    </div>
+        </div>
+      <div class="row">
+        <div class="col-6 current-date">
+          <h2 id="current-date">
+            Day | Month date | time <span id="am-or-pm">/am/pm</span></h2>
+          <div class="search-box">
+            <br />
+
+            <form id="city-search">
+              <div class="row">
+                <div class="col-6">
+                    <input 
+                        type="search" 
+                        id="change-city-box"
+                        placeholder="Change city" 
+                        class="form-control city-search"
+                        autofocus="on"
+                        />
+              </div>
+                <div class="col-4">
+                  <input 
+                        type="submit" 
+                        value="search" 
+                        class="form-control search-button"
+                        id="city-search-button"
+                         />
+                     
+                </div>
+              
+                <div class="col-2">
+                  <a href="">
+               <i class="fas fa-map-marker-alt " 
+               id= location-icon></i>
+                  </a>
+                </div>
+              </div>
+                           
+
+            </form>
+          </div>
+        </div>
+
+        <div class="row row-current-degrees">
+          <div class="col-6 current-degrees">
+            <h3 id="current-degrees-display"> </h3>
+          </div>
+
+          <div class="col-6 current-weather">
+            <h4>Sunny</h4>
+            <img src="img/sunny.png" class="weather-image" />
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <br />
+    <div class="container-flexbox">
+        <div class="box1">
+        <div class="wind">
+            Wind: 
+            <br>
+            <span id="wind-speed">2</span>
+        </div>
+        <br>
+        <div class="humidity">
+            Humidity: 
+            <br>
+            <span id="humidity-percentage">30%</span>
+        </div>
+        </div>
+        <div class="box2"> <div class="quote">test one to three</div> <img src="img/dog.png" class="dog-image"></div>
+             
+
+      </div>
+    
+    <hr />
+
+    <div class="grid-container-weather">
+      <div  class="grid-item-mon">
+        <p>
+
+        Mon
+        <br>
+        <img src="img/sunny.png" alt="weather image">
+<br>
+            18|10
+            </div>
+
+    <div  class="grid-item-tues">
+            Tues
+            <br>
+            <img src="img/sunny.png" alt="weather image">
+            <br>
+            18|10
+                </div>
+
+    <div  class="grid-item-wed">
+
+            Wed
+            <br>
+            <img src="img/sunny.png" alt="weather image">
+            <br>
+            18|10
+                </div>
+    <div  class="grid-item-thur">
+            Thur
+            <br>
+            <img src="img/sunny.png" alt="weather image">
+                <br>
+                18|10   
+        </div>
+
+    <div  class="grid-item-fri">
+            Fri
+                <br>
+                <img src="img/sunny.png" alt="weather image">
+                <br>
+                18|10  
+              </div>
+            </p>
+
+          </div>
+        </div>
+      </div>  
+    </div>
+    <script src="src/javascript.js"></script>
+  </body>
+</html>
