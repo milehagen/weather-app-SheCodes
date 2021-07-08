@@ -1,14 +1,14 @@
 html {
   min-width: 500px;
-  max-width: 600px;
+  max-width: 652px;
   width: 100%;
   display: block;
   margin: 0 auto;
 }
 
 body {
-  min-width: 800px;
-  padding: 30px;
+  max-width: 652px;
+  padding: 10px;
 }
 h1 {
   width: 385px;
@@ -30,7 +30,7 @@ h4 {
 .container {
   min-width: 550px;
   max-width: 850px;
-  padding: 20px;
+  padding: 35px;
   border: solid;
   border-radius: 10px;
   background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
@@ -116,4 +116,8 @@ h4 {
 #coded-by-mi {
   text-align: center;
   margin-top: 15px;
+}
+
+a {
+  text-decoration: none;
 }
