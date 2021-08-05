@@ -18,14 +18,20 @@ let minutes= currentDate.getMinutes();
 
 h2.innerHTML= (`${day} | ${month} ${date} | ${hour}:${minutes}`);
 
-//show-city-temp
+//show-user's-cityTemp
 function showUserTemperature(response){
-    console.log(response.data);
-    document.querySelector("#wind-speed").innerHTML=`${Math.round(response.data.wind.speed)} Km/hr`;
-    document.querySelector("#humidity-percentage").innerHTML=`${response.data.main.humidity}%`;
-    document.querySelector("h1").innerHTML= response.data.name.toUpperCase();
-    document.querySelector("#current-degrees-display").innerHTML=`${Math.round(response.data.main.temp)}º`;
-    document.querySelector("h4").innerHTML= response.data.weather[0].description;
+    let winSpeed = document.querySelector("#wind-speed");
+    let humidity = document.querySelector("#humidity-percentage");
+    let cityHeadline = document.querySelector("h1");
+    let displayCurrentDegrees=document.querySelector("#current-degrees-display");
+    let currentWeatherDescription=document.querySelector("h4");
+
+
+    winSpeed.innerHTML=`${Math.round(response.data.wind.speed)} Km/hr`;
+    humidity.innerHTML=`${response.data.main.humidity}%`;
+    cityHeadline.innerHTML= response.data.name.toUpperCase();
+    displayCurrentDegrees.innerHTML=`${Math.round(response.data.main.temp)}º`;
+    currentWeatherDescription.innerHTML= response.data.weather[0].description;
 }
 //Search-city
 
