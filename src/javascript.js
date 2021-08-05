@@ -20,11 +20,13 @@ h2.innerHTML= (`${day} | ${month} ${date} | ${hour}:${minutes}`);
 
 //show-user's-cityTemp
 function showUserTemperature(response){
+    console.log(response.data)
     let winSpeed = document.querySelector("#wind-speed");
     let humidity = document.querySelector("#humidity-percentage");
     let cityHeadline = document.querySelector("h1");
     let displayCurrentDegrees=document.querySelector("#current-degrees-display");
     let currentWeatherDescription=document.querySelector("h4");
+    let weatherIcon = document.querySelector("#weather-icon");
 
 
     winSpeed.innerHTML=`${Math.round(response.data.wind.speed)} Km/hr`;
@@ -32,6 +34,7 @@ function showUserTemperature(response){
     cityHeadline.innerHTML= response.data.name.toUpperCase();
     displayCurrentDegrees.innerHTML=`${Math.round(response.data.main.temp)}º`;
     currentWeatherDescription.innerHTML= response.data.weather[0].description;
+    weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 //Search-city
 
