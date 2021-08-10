@@ -51,6 +51,7 @@ h4 {
 
 .change-city-box {
   min-width: 400px;
+  border-radius: calc(0.5 * var(--ntp-realbox-height));
 }
 
 #location-icon {
@@ -105,11 +106,7 @@ h4 {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.grid-item-mon,
-.grid-item-tues,
-.grid-item-wed,
-.grid-item-thur,
-.grid-item-fri {
+.grid-item-mon {
   text-align: center;
 }
 
