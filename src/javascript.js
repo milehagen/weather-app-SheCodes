@@ -95,9 +95,9 @@ dayAndNight();
 //display-5-day-Weather-Forecast
 function displayForecast(response){
     let forecast= response.data.daily;
- let forecastElement=document.querySelector("#forecast");
+    let forecastElement=document.querySelector("#forecast");
 
- let forecastHTML=`<div class="row" id="five-day-forecast">`;
+    let forecastHTML=`<div class="row" id="five-day-forecast">`;
 
  forecast.forEach(function(forecastDay, index){
     if (index < 5){
@@ -109,7 +109,8 @@ function displayForecast(response){
        <div class="forecast-day"> ${formatDay(forecastDay.dt)}</div>
         <div><img 
         id="icon"
-        src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+        src="img/${forecastDay.weather[0].icon}.png"
+        width=60px;
         alt= "weather image"
         />
         </div>
@@ -150,7 +151,7 @@ function showUserTemperature(response){
     cityHeadline.innerHTML= response.data.name.toUpperCase();
     displayCurrentDegrees.innerHTML=`${Math.round(response.data.main.temp)}ºC`;
     currentWeatherDescription.innerHTML= response.data.weather[0].description;
-    weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    weatherIcon.innerHTML= `<img src="img/${response.data.weather[0].icon}.png"/>`;
 
     getCoordinates(response.data.coord);
 }
