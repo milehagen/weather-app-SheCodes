@@ -31,8 +31,6 @@ let date= currentDate.getDate();
 let hour=currentDate.getHours();
 let minutes= currentDate.getMinutes();
 
-h2.innerHTML= (`${day} | ${month} ${date} | ${hour}:${minutes}`);
-
 //Clean-up date
 
 function formatDay(timeStamp){
@@ -48,39 +46,81 @@ function formatDay(timeStamp){
     "Sat",]
 
 return days[day];
+    }
+
+h2.innerHTML= (`${day} | ${month} ${date} | ${hour}:${minutes}`);
+
+
+//change background color
+
+function dayAndNight(){
+    let current = new Date();
+    let day_night = current.getHours();
+    //afternoon
+        if (day_night>=12 && day_night<18){
+            let background= document.querySelector("#container");
+            background.style.backgroundColor="rgb(147,217,238)";
+            background.style.background="linear-gradient(0deg, rgba(147,217,238,1) 0%, rgba(3,104,161,1) 100%)";
+        }
+        //evening
+        else if (day_night>=18 && day_night<24 ) {
+        let background=document.querySelector("#container");
+           background.style.backgroundColor="rgb(187,100,138)";
+            background.style.background="linear-gradient(0deg, rgba(187,100,138,0.7539390756302521) 0%, rgba(15,12,51,1) 93%)";
+       }
+        //midnight 00:00-03:59 
+        else if (day_night>=24 && day_night<4 ){
+            let background=document.querySelector("#container");
+            background.style.backgroundColor="rgb(27,43,98)";
+            background.style.background="linear-gradient(0deg, rgba(27,43,98,0.7539390756302521) 0%, rgba(3,3,20,1) 100%)";
+
+        }
+        //morning 04:00-05:59 
+
+        else if (day_night>=4 && day_night<6 ){
+            let background=document.querySelector("#container");
+            background.style.backgroundColor="rgb(185,113,31)";
+            background.style.background="linear-gradient(0deg, rgba(185,113,31,1) 0%, rgba(212,185,119,1) 51%, rgba(33,154,157,1) 100%)";
+        }
+
+        else {
+            let background=document.querySelector("#container");
+            background.style.backgroundColor="rgb(147,217,238)";
+            background.style.background="linear-gradient(0deg, rgba(147,217,238,1) 0%, rgba(3,104,161,1) 100%)";
+        }
 }
+
+dayAndNight();
 
 //display-5-day-Weather-Forecast
 function displayForecast(response){
-    console.log(response.data.daily);
     let forecast= response.data.daily;
  let forecastElement=document.querySelector("#forecast");
 
- let forecastHTML=`<div class="row">
-`;
+ let forecastHTML=`<div class="row" id="five-day-forecast">`;
+
  forecast.forEach(function(forecastDay, index){
-    if (index < 6){
+    if (index < 5){
     forecastHTML = 
     forecastHTML +
 
 `
       <div  class="col-2">
-        <p>
-
        <div class="forecast-day"> ${formatDay(forecastDay.dt)}</div>
-        <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+        <div><img 
+        id="icon"
+        src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
         alt= "weather image"
         />
-        <br>
-            <span class="minTemp">${Math.round(forecastDay.temp.min)}º</span>|<span class="maxTemp">${Math.round(forecastDay.temp.max)}º</span>
-           
-            </p>          
+        </div>
+        <span class="minTemp">${Math.round(forecastDay.temp.min)}Cºc</span>|<span class="maxTemp">${Math.round(forecastDay.temp.max)}Cº</span>       
     `;
      }
     forecastHTML= forecastHTML+`</div>`;
  });
 
     forecastElement.innerHTML=forecastHTML;
+
 }
 
 //retrieve-city-coordinates
@@ -108,7 +148,7 @@ function showUserTemperature(response){
     winSpeed.innerHTML=`${Math.round(response.data.wind.speed)} Km/hr`;
     humidity.innerHTML=`${response.data.main.humidity}%`;
     cityHeadline.innerHTML= response.data.name.toUpperCase();
-    displayCurrentDegrees.innerHTML=`${Math.round(response.data.main.temp)}º`;
+    displayCurrentDegrees.innerHTML=`${Math.round(response.data.main.temp)}ºC`;
     currentWeatherDescription.innerHTML= response.data.weather[0].description;
     weatherIcon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 
@@ -151,4 +191,3 @@ let locationIcon = document.querySelector("#location-icon");
 locationIcon.addEventListener("click", fetchUsersLocation)
 
 search ("Oslo");
-

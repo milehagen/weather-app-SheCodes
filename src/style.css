@@ -8,23 +8,27 @@ html {
 
 body {
   max-width: 652px;
-  padding: 10px;
+  color: white;
 }
+
 h1 {
   width: 385px;
+}
+
+h2 {
+  font-size: 16px;
 }
 
 form {
   min-width: 400px;
 }
 h3 {
-  font-size: 135px;
+  font-size: 130px;
   font-weight: 400;
 }
 h4 {
   text-align: center;
-  margin-top: 0;
-  font-size: 25px;
+  font-size: 18px;
 }
 
 .container {
@@ -33,7 +37,11 @@ h4 {
   padding: 35px;
   border: solid;
   border-radius: 10px;
-  background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(209, 156, 179, 1) 0%,
+    rgba(31, 65, 106, 1) 100%
+  );
 }
 
 .metric {
@@ -65,7 +73,7 @@ h4 {
 .weather-image {
   display: block;
   margin: 0 auto;
-  width: 95px;
+  width: 200px;
 }
 
 .container-flexbox {
@@ -89,27 +97,28 @@ h4 {
 }
 
 .dog-image {
-  margin-left: 5px;
-  margin-top: 0;
+  width: 260px;
+}
+
+.forecast-day {
+  text-align: center;
+  font-weight: bold;
+}
+
+.five-day-forecast {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: normal;
+  justify-content: space-between;
 }
 
-.quote {
-  text-align: center;
-  position: relative;
-  bottom: -15%;
-  right: 8%;
-}
-.grid-container-weather {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+.maxTemp {
+  font-weight: bold;
 }
 
-.grid-item-mon {
-  text-align: center;
+.icon {
+  padding-right: 20px;
 }
-
 #coded-by-mi {
   text-align: center;
   margin-top: 15px;
