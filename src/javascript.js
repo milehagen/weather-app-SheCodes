@@ -13,6 +13,7 @@ let days= [
     "Saturday", 
 ]
 let day= days[currentDate.getDay()];
+
 let months= [
     "Dec", 
     "Jan", 
@@ -26,10 +27,22 @@ let months= [
     "Oct", 
     "Nov",
 ];
+
+
 let month= months [currentDate.getMonth()];
 let date= currentDate.getDate();
 let hour=currentDate.getHours();
+//timeFormat if hour is less than 10
+
+if (hour<10){
+    hour=`0${hour}`;
+}
 let minutes= currentDate.getMinutes();
+
+//timeFormat if minutes is less than 10
+if (minutes<10){
+    minutes=`0${minutes}`;
+}
 
 //Clean-up date
 
@@ -61,15 +74,22 @@ function dayAndNight(){
             let background= document.querySelector("#container");
             background.style.backgroundColor="rgb(147,217,238)";
             background.style.background="linear-gradient(0deg, rgba(147,217,238,1) 0%, rgba(3,104,161,1) 100%)";
+ 
         }
-        //evening
-        else if (day_night>=18 && day_night<24 ) {
-        let background=document.querySelector("#container");
-           background.style.backgroundColor="rgb(187,100,138)";
-            background.style.background="linear-gradient(0deg, rgba(187,100,138,0.7539390756302521) 0%, rgba(15,12,51,1) 93%)";
+        //early evening
+        else if (day_night>=18 && day_night<20 ) {
+            let background= document.querySelector("#container");
+           background.style.backgroundColor="rgb(187,90,6)";
+            background.style.background="linear-gradient(0deg, rgba(187,90,6,1) 14%, rgba(224,186,118,1) 47%, rgba(69,127,190,1) 90%)";
        }
-        //midnight 00:00-03:59 
-        else if (day_night>=24 && day_night<4 ){
+        //late evening
+        else if (day_night>=20 && day_night<22 ) {
+            let background= document.querySelector("#container");
+            background.style.backgroundColor="rgb(187,100,138)";
+            background.style.background="linear-gradient(0deg, rgba(187,100,138,0.7539390756302521) 0%, rgba(15,12,51,1) 93%)";
+        }
+        //night 00:00-03:59 
+        else if (day_night>=22 && day_night<5 ){
             let background=document.querySelector("#container");
             background.style.backgroundColor="rgb(27,43,98)";
             background.style.background="linear-gradient(0deg, rgba(27,43,98,0.7539390756302521) 0%, rgba(3,3,20,1) 100%)";
@@ -79,15 +99,10 @@ function dayAndNight(){
 
         else if (day_night>=4 && day_night<6 ){
             let background=document.querySelector("#container");
-            background.style.backgroundColor="rgb(185,113,31)";
-            background.style.background="linear-gradient(0deg, rgba(185,113,31,1) 0%, rgba(212,185,119,1) 51%, rgba(33,154,157,1) 100%)";
+            background.style.backgroundColor="rgb(47,143,217)";
+            background.style.background="linear-gradient(180deg, rgba(47,143,217,1) 21%, rgba(235,195,84,0.9570203081232493) 74%, rgba(195,105,31,1) 95%)";
         }
 
-        else {
-            let background=document.querySelector("#container");
-            background.style.backgroundColor="rgb(147,217,238)";
-            background.style.background="linear-gradient(0deg, rgba(147,217,238,1) 0%, rgba(3,104,161,1) 100%)";
-        }
 }
 
 dayAndNight();
@@ -114,8 +129,10 @@ function displayForecast(response){
         alt= "weather image"
         />
         </div>
-        <span class="minTemp">${Math.round(forecastDay.temp.min)}Cºc</span>|<span class="maxTemp">${Math.round(forecastDay.temp.max)}Cº</span>       
-    `;
+       
+        <div id="max-min-temp"><span class="minTemp"> ${Math.round(forecastDay.temp.min)}ºC</span><span class="maxTemp"> ${Math.round(forecastDay.temp.max)}ºC</span></div>       
+    
+        `;
      }
     forecastHTML= forecastHTML+`</div>`;
  });
@@ -144,6 +161,7 @@ function showUserTemperature(response){
     let displayCurrentDegrees=document.querySelector("#current-degrees-display");
     let currentWeatherDescription=document.querySelector("h4");
     let weatherIcon = document.querySelector("#weather-icon");
+    
 
 
     winSpeed.innerHTML=`${Math.round(response.data.wind.speed)} Km/hr`;
@@ -151,7 +169,7 @@ function showUserTemperature(response){
     cityHeadline.innerHTML= response.data.name.toUpperCase();
     displayCurrentDegrees.innerHTML=`${Math.round(response.data.main.temp)}ºC`;
     currentWeatherDescription.innerHTML= response.data.weather[0].description;
-    weatherIcon.innerHTML= `<img src="img/${response.data.weather[0].icon}.png"/>`;
+    weatherIcon.innerHTML= `<src="img/${response.data.weather[0].icon}.png"/>`;
 
     getCoordinates(response.data.coord);
 }
