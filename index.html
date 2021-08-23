@@ -19,91 +19,108 @@
     <title>sheCodes Weather App Project</title>
   </head>
   <body id="body">
-    <div class="container" id="container">
-      <div class="row">
-        <div class="col-6 city-name">
-          <h1>OSLO</h1>
+    <div id="responsive-size">
+      <div class="container" id="container">
+        <div class="row">
+          <div class="col-7 city-name">
+            <h1>OSLO</h1>
 
-          <span class="col- current-date">
-            <h2 id="current-date">
-              Day | Month date | time <span id="am-or-pm">/am/pm</span>
-            </h2>
-          </span>
+            <span class="col- current-date">
+              <h2 id="current-date">
+                Day | Month date | time <span id="am-or-pm">/am/pm</span>
+              </h2>
+            </span>
 
-          <div class="search-box">
+            <div class="search-box">
+              <br />
+
+              <form id="city-search">
+                <div class="row">
+                  <div class="col-6">
+                    <input
+                      type="search"
+                      id="change-city-box"
+                      placeholder="Change city"
+                      class="form-control city-search"
+                      autofocus="on"
+                    />
+                  </div>
+                  <div class="col-4">
+                    <input
+                      type="submit"
+                      value="search"
+                      class="form-control search-button"
+                      id="city-search-button"
+                    />
+                  </div>
+
+                  <div class="col-2" id="five-day-forecast-box">
+                    <a href="">
+                      <i class="fas fa-map-marker-alt" id="location-icon"></i>
+                    </a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="row row-current-degrees">
+            <div class="col-4 current-weather">
+              <img src="img/01d.png" class="weather-image" id="weather-icon" />
+            </div>
+            <div class="col-6 current-degrees">
+              <h3 id="current-degrees-display"></h3>
+            </div>
             <br />
 
-            <form id="city-search">
-              <div class="row">
-                <div class="col-6">
-                  <input
-                    type="search"
-                    id="change-city-box"
-                    placeholder="Change city"
-                    class="form-control city-search"
-                    autofocus="on"
-                  />
-                </div>
-                <div class="col-4">
-                  <input
-                    type="submit"
-                    value="search"
-                    class="form-control search-button"
-                    id="city-search-button"
-                  />
-                </div>
-
-                <div class="col-2" id="five-day-forecast-box">
-                  <a href="">
-                    <i class="fas fa-map-marker-alt" id="location-icon"></i>
-                  </a>
+            <div class="container-flexbox">
+              <div class="col-6">
+                <h4>Sunny</h4>
+              </div>
+              <div class="col-3">
+                <div class="wind">
+                  Wind:
+                  <br />
+                  <span id="wind-speed">2</span>
                 </div>
               </div>
-            </form>
+              <br />
+              <div class="col-3">
+                <div class="humidity">
+                  Humidity:
+                  <br />
+                  <span id="humidity-percentage">30%</span>
+                </div>
+              </div>
+            </div>
           </div>
+          <hr />
         </div>
-
-        <div class="row row-current-degrees">
-          <div class="col-4 current-weather">
-            <img src="img/01d.png" class="weather-image" id="weather-icon" />
-          </div>
-          <div class="col-6 current-degrees">
-            <h3 id="current-degrees-display"></h3>
-            <h4>Sunny</h4>
-          </div>
-        </div>
-
         <br />
-        <div class="container-flexbox">
-          <div class="box2">
-            <div class="wind">
-              Wind:
-              <br />
-              <span id="wind-speed">2</span>
+        <div class="weather-forecast" id="forecast"></div>
+        <div class="bottom-small-text">
+          <small id="coded-by-mi">
+            <a
+              href="https://github.com/milehagen/weather-app-SheCodes"
+              target="_blank"
+              >Open-source Code
+            </a>
+            by
+
+            <a
+              href="https://www.linkedin.com/in/mi-le-hagen-5aa0b617"
+              target="_blank"
+            >
+              Mi Le Hagen</a
+            >
+            <div class="icon-attribute">
+              Icons from
+              <a href="https://www.flaticon.com/" target="_blank">Flaticon</a>
             </div>
-            <br />
-            <div class="humidity">
-              Humidity:
-              <br />
-              <span id="humidity-percentage">30%</span>
-            </div>
-          </div>
+          </small>
         </div>
-        <hr />
       </div>
-
-      <div class="weather-forecast" id="forecast"></div>
     </div>
-
     <script src="src/javascript.js"></script>
   </body>
-  <small id="coded-by-mi">
-    <a href="https://github.com/milehagen/weather-app-SheCodes" target="_blank"
-      >Open-source Code
-    </a>
-    by
-    <a href="https://www.linkedin.com/in/mi-le-hagen-5aa0b617" target="_blank">
-      Mi Le Hagen</a
-    ></small
-  >
 </html>

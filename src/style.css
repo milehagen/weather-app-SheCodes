@@ -4,10 +4,14 @@ html {
   width: 100%;
   display: block;
   margin: 0 auto;
+  background-color: whitesmoke;
 }
 
 body {
-  max-width: 652px;
+  width: 100%;
+  max-width: 1140px;
+  margin: 60px auto;
+  border-radius: 70px;
   color: white;
 }
 
@@ -23,24 +27,23 @@ form {
   min-width: 400px;
 }
 h3 {
-  font-size: 120px;
+  font-size: 90px;
   font-weight: 200;
   margin-top: 60px;
   margin-left: 50px;
 }
 h4 {
-  text-align: center;
+  margin-left: 40px;
   font-size: 18px;
-  margin-left: 80px;
+  margin-top: 15px;
 }
 
 .container {
-  min-width: 550px;
-  max-width: 850px;
-  min-height: 820px;
-  padding: 35px;
+  width: 100%;
+  padding: 60px;
   border: solid;
-  border-radius: 10px;
+  border-radius: 70px;
+  border-color: whitesmoke;
   background: linear-gradient(
     0deg,
     rgba(209, 156, 179, 1) 0%,
@@ -48,21 +51,15 @@ h4 {
   );
 }
 
-.metric {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  padding-left: 50px;
-  font-weight: 500;
-  line-height: 1.2;
-  text-align: center;
-  font-size: calc(1.1rem + 1.5vw);
+.resonsive-site {
+  max-width: 800px;
+  margin: 60px auto;
 }
 .current-date {
   font-size: 14px;
 }
 
 .change-city-box {
-  min-width: 400px;
   border-radius: calc(0.5 * var(--ntp-realbox-height));
 }
 
@@ -71,6 +68,7 @@ h4 {
   font-size: 30px;
   border: none;
 }
+
 .current-weather {
   margin-top: 20px;
 }
@@ -92,6 +90,11 @@ h4 {
   left: 5%;
   top: 100px;
 }
+
+#weather-icon {
+  width: 135px;
+}
+
 .wind,
 .humidity {
   font-weight: bold;
@@ -105,29 +108,10 @@ h4 {
   font-weight: lighter;
 }
 
-.five-day-forecast {
-  display: flex;
-  flex-direction: row;
-  align-content: normal;
-  justify-content: space-between;
-}
-
 .forecast-day {
-  text-align: center;
   font-weight: bold;
-  margin-left: 50px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-#icon {
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.weather-forecast {
-  padding-left: 10px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 .maxTemp {
   font-weight: bold;
@@ -135,7 +119,8 @@ h4 {
 
 #max-min-temp {
   font-size: 14px;
-  margin-left: 45px;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .icon {
@@ -144,13 +129,19 @@ h4 {
   max-width: 50;
   align-content: space-between;
 }
-#coded-by-mi {
+
+.bottom-small-text {
   text-align: center;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+#coded-by-mi {
   margin-top: 15px;
-  color: grey;
-  margin-left: 150px;
+  color: whitesmoke;
 }
 
 a {
   text-decoration: none;
+  color: whitesmoke;
+  font-weight: bold;
 }

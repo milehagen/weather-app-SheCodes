@@ -70,38 +70,42 @@ function dayAndNight(){
     let current = new Date();
     let day_night = current.getHours();
     //afternoon
-        if (day_night>=12 && day_night<18){
+        if (day_night>=6 && day_night<18){
             let background= document.querySelector("#container");
+            let body=document.querySelector("#body");
             background.style.backgroundColor="rgb(147,217,238)";
             background.style.background="linear-gradient(0deg, rgba(147,217,238,1) 0%, rgba(3,104,161,1) 100%)";
+            body.style.backgroundColor="rgb(147,217,238)";
+            body.style.background="linear-gradient(0deg, rgba(147,217,238,1) 0%, rgba(3,104,161,1) 100%)";
  
         }
         //early evening
-        else if (day_night>=18 && day_night<20 ) {
+        else if (day_night>=18 && day_night<21 ) {
             let background= document.querySelector("#container");
-           background.style.backgroundColor="rgb(187,90,6)";
+            let body=document.querySelector("#body");
+            background.style.backgroundColor="rgb(187,90,6)";
             background.style.background="linear-gradient(0deg, rgba(187,90,6,1) 14%, rgba(224,186,118,1) 47%, rgba(69,127,190,1) 90%)";
+            body.style.backgroundColor="rgb(187,90,6)";
+            body.style.background="linear-gradient(0deg, rgba(187,90,6,1) 14%, rgba(224,186,118,1) 47%, rgba(69,127,190,1) 90%)";
        }
         //late evening
-        else if (day_night>=20 && day_night<22 ) {
+        else if (day_night>=21 || day_night<4)  {
             let background= document.querySelector("#container");
-            background.style.backgroundColor="rgb(187,100,138)";
-            background.style.background="linear-gradient(0deg, rgba(187,100,138,0.7539390756302521) 0%, rgba(15,12,51,1) 93%)";
+            let body=document.querySelector("#body");
+            background.style.backgroundColor="rgb(55,79,120)";
+            background.style.background="linear-gradient(0deg, rgba(55,79,120,1) 14%, rgba(4,34,68,1) 90%)";
+            body.style.backgroundColor="rgb(55,79,120)";
+            body.style.background="linear-gradient(0deg, rgba(55,79,120,1) 14%, rgba(4,34,68,1) 90%)";
         }
-        //night 00:00-03:59 
-        else if (day_night>=22 && day_night<5 ){
-            let background=document.querySelector("#container");
-            background.style.backgroundColor="rgb(27,43,98)";
-            background.style.background="linear-gradient(0deg, rgba(27,43,98,0.7539390756302521) 0%, rgba(3,3,20,1) 100%)";
-
-        }
+        
         //morning 04:00-05:59 
 
-        else if (day_night>=4 && day_night<6 ){
-            let background=document.querySelector("#container");
-            background.style.backgroundColor="rgb(47,143,217)";
-            background.style.background="linear-gradient(180deg, rgba(47,143,217,1) 21%, rgba(235,195,84,0.9570203081232493) 74%, rgba(195,105,31,1) 95%)";
+        else {
+        let background=document.querySelector("#container");
+        background.style.backgroundColor="rgb(47,143,217)";
+        background.style.background="linear-gradient(180deg, rgba(47,143,217,1) 21%, rgba(235,195,84,0.9570203081232493) 74%, rgba(195,105,31,1) 95%)";
         }
+        
 
 }
 
@@ -110,12 +114,13 @@ dayAndNight();
 //display-5-day-Weather-Forecast
 function displayForecast(response){
     let forecast= response.data.daily;
+
     let forecastElement=document.querySelector("#forecast");
 
     let forecastHTML=`<div class="row" id="five-day-forecast">`;
 
  forecast.forEach(function(forecastDay, index){
-    if (index < 5){
+    if (index < 6){
     forecastHTML = 
     forecastHTML +
 
@@ -130,7 +135,7 @@ function displayForecast(response){
         />
         </div>
        
-        <div id="max-min-temp"><span class="minTemp"> ${Math.round(forecastDay.temp.min)}ºC</span><span class="maxTemp"> ${Math.round(forecastDay.temp.max)}ºC</span></div>       
+        <div id="max-min-temp"><span class="minTemp">${Math.round(forecastDay.temp.min)}º<br></span><span class="maxTemp">${Math.round(forecastDay.temp.max)}º</span></div>       
     
         `;
      }
@@ -161,7 +166,6 @@ function showUserTemperature(response){
     let displayCurrentDegrees=document.querySelector("#current-degrees-display");
     let currentWeatherDescription=document.querySelector("h4");
     let weatherIcon = document.querySelector("#weather-icon");
-    
 
 
     winSpeed.innerHTML=`${Math.round(response.data.wind.speed)} Km/hr`;
@@ -169,9 +173,11 @@ function showUserTemperature(response){
     cityHeadline.innerHTML= response.data.name.toUpperCase();
     displayCurrentDegrees.innerHTML=`${Math.round(response.data.main.temp)}ºC`;
     currentWeatherDescription.innerHTML= response.data.weather[0].description;
-    weatherIcon.innerHTML= `<src="img/${response.data.weather[0].icon}.png"/>`;
+    weatherIcon.setAttribute("src", `img/${response.data.weather[0].icon}.png`);  
 
     getCoordinates(response.data.coord);
+    
+
 }
 //Search-city
 
@@ -180,6 +186,7 @@ let apiKey = "7bc66b8226689078b2ef89f11a04633c";
         let units = "metric";
         let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
         axios.get(apiUrl).then(showUserTemperature);
+        
 }
 
 //handle Submit
