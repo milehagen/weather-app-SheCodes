@@ -11,7 +11,7 @@ body {
   width: 100%;
   max-width: 1140px;
   margin: 60px auto;
-  border-radius: 70px;
+  border-radius: 50px;
   color: white;
 }
 
@@ -33,7 +33,7 @@ h3 {
   margin-left: 50px;
 }
 h4 {
-  margin-left: 40px;
+  margin-left: 20px;
   font-size: 18px;
   margin-top: 15px;
 }
@@ -41,9 +41,7 @@ h4 {
 .container {
   width: 100%;
   padding: 60px;
-  border: solid;
-  border-radius: 70px;
-  border-color: whitesmoke;
+  border-radius: 50px;
   background: linear-gradient(
     0deg,
     rgba(209, 156, 179, 1) 0%,
